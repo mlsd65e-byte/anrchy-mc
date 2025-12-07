@@ -91,12 +91,11 @@
         .event strong {
             color: #ff6b6b;
         }
-        .people {
+        .people-list {
             font-size: 0.9em;
             color: #ccc;
-            margin-top: 5px;
         }
-        .people i {
+        .people-list i {
             margin-right: 5px;
         }
         .clear-btn {
@@ -125,6 +124,7 @@
             <tr>
                 <th><i class="fas fa-calendar-day"></i> Día</th>
                 <th><i class="fas fa-list"></i> Eventos</th>
+                <th><i class="fas fa-users"></i> Encargados</th>
                 <th><i class="fas fa-cogs"></i> Acciones</th>
             </tr>
         </thead>
@@ -132,36 +132,43 @@
             <tr data-day="Lunes">
                 <td><i class="fas fa-fire"></i> Lunes</td>
                 <td id="events-Lunes"></td>
+                <td id="people-Lunes" class="people-list"></td>
                 <td><button onclick="addEvent('Lunes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Martes">
                 <td><i class="fas fa-bolt"></i> Martes</td>
                 <td id="events-Martes"></td>
+                <td id="people-Martes" class="people-list"></td>
                 <td><button onclick="addEvent('Martes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Miércoles">
                 <td><i class="fas fa-exclamation-triangle"></i> Miércoles</td>
                 <td id="events-Miércoles"></td>
+                <td id="people-Miércoles" class="people-list"></td>
                 <td><button onclick="addEvent('Miércoles')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Jueves">
                 <td><i class="fas fa-skull-crossbones"></i> Jueves</td>
                 <td id="events-Jueves"></td>
+                <td id="people-Jueves" class="people-list"></td>
                 <td><button onclick="addEvent('Jueves')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Viernes">
                 <td><i class="fas fa-music"></i> Viernes</td>
                 <td id="events-Viernes"></td>
+                <td id="people-Viernes" class="people-list"></td>
                 <td><button onclick="addEvent('Viernes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Sábado">
                 <td><i class="fas fa-gamepad"></i> Sábado</td>
                 <td id="events-Sábado"></td>
+                <td id="people-Sábado" class="people-list"></td>
                 <td><button onclick="addEvent('Sábado')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Domingo">
                 <td><i class="fas fa-coffee"></i> Domingo</td>
                 <td id="events-Domingo"></td>
+                <td id="people-Domingo" class="people-list"></td>
                 <td><button onclick="addEvent('Domingo')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
         </tbody>
@@ -192,18 +199,25 @@
         function loadEvents(day) {
             const events = JSON.parse(localStorage.getItem(day) || '[]');
             const container = document.getElementById(`events-${day}`);
+            const peopleContainer = document.getElementById(`people-${day}`);
             container.innerHTML = '';
+            let allPeople = [];
             events.forEach((event, index) => {
                 const div = document.createElement('div');
                 div.className = 'event';
                 div.innerHTML = `
                     <strong><i class="fas fa-clock"></i> ${event.time}:</strong> ${event.desc}
-                    ${event.people ? `<div class="people"><i class="fas fa-users"></i> Personas: ${event.people}</div>` : ''}
                     <button onclick="editEvent('${day}', ${index})"><i class="fas fa-edit"></i> Editar</button>
                     <button onclick="removeEvent('${day}', ${index})"><i class="fas fa-times"></i> Eliminar</button>
                 `;
                 container.appendChild(div);
+                if (event.people) {
+                    allPeople = allPeople.concat(event.people.split(',').map(p => p.trim()));
+                }
             });
+            // Mostrar personas únicas en la columna separada
+            const uniquePeople = [...new Set(allPeople)].filter(p => p);
+            peopleContainer.innerHTML = uniquePeople.length ? `<i class="fas fa-users"></i> ${uniquePeople.join(', ')}` : 'Ninguno';
         }
 
         function editEvent(day, index) {
