@@ -4,31 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronograma Semanal para Discord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #5865f2, #7289da);
+            background: linear-gradient(135deg, #5865f2, #7289da, #99aab5);
             color: #fff;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.5em;
+        }
+        h1 i {
+            color: #00ff88;
         }
         p {
             text-align: center;
             margin-bottom: 30px;
+            font-size: 1.1em;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             background: rgba(255,255,255,0.1);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
         }
         th, td {
             padding: 15px;
@@ -36,26 +48,45 @@
             border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         th {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.3);
             font-weight: bold;
+            font-size: 1.2em;
+        }
+        th i {
+            margin-right: 10px;
         }
         button {
-            background: #5865f2;
+            background: linear-gradient(45deg, #5865f2, #4752c4);
             color: #fff;
             border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 10px 15px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 0.9em;
         }
         button:hover {
-            background: #4752c4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         .event {
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 15px;
             background: rgba(255,255,255,0.1);
-            border-radius: 5px;
+            border-radius: 10px;
+            border-left: 5px solid #00ff88;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         .event strong {
             color: #00ff88;
@@ -63,69 +94,80 @@
         .people {
             font-size: 0.9em;
             color: #ccc;
+            margin-top: 5px;
+        }
+        .people i {
+            margin-right: 5px;
         }
         .clear-btn {
             display: block;
-            margin: 20px auto;
-            background: #ff4757;
+            margin: 30px auto;
+            background: linear-gradient(45deg, #ff4757, #e84118);
+            font-size: 1.1em;
+            padding: 12px 20px;
         }
         .clear-btn:hover {
-            background: #e84118;
+            background: linear-gradient(45deg, #e84118, #c44569);
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            table { font-size: 0.9em; }
+            button { padding: 8px 12px; }
         }
     </style>
 </head>
 <body>
-    <h1>Cronograma Semanal para Servidor de Discord</h1>
-    <p>Agrega eventos por día con hora, descripción y personas asignadas. Los datos se guardan automáticamente.</p>
+    <h1><i class="fab fa-discord"></i> Cronograma Semanal para Servidor de Discord</h1>
+    <p>Agrega eventos por día con hora, descripción y personas asignadas. ¡Decorado para inspirarte! <i class="fas fa-calendar-alt"></i></p>
     
     <table id="schedule">
         <thead>
             <tr>
-                <th>Día</th>
-                <th>Eventos</th>
-                <th>Acciones</th>
+                <th><i class="fas fa-calendar-day"></i> Día</th>
+                <th><i class="fas fa-list"></i> Eventos</th>
+                <th><i class="fas fa-cogs"></i> Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr data-day="Lunes">
-                <td>Lunes</td>
+                <td><i class="fas fa-sun"></i> Lunes</td>
                 <td id="events-Lunes"></td>
-                <td><button onclick="addEvent('Lunes')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Lunes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Martes">
-                <td>Martes</td>
+                <td><i class="fas fa-moon"></i> Martes</td>
                 <td id="events-Martes"></td>
-                <td><button onclick="addEvent('Martes')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Martes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Miércoles">
-                <td>Miércoles</td>
+                <td><i class="fas fa-star"></i> Miércoles</td>
                 <td id="events-Miércoles"></td>
-                <td><button onclick="addEvent('Miércoles')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Miércoles')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Jueves">
-                <td>Jueves</td>
+                <td><i class="fas fa-cloud"></i> Jueves</td>
                 <td id="events-Jueves"></td>
-                <td><button onclick="addEvent('Jueves')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Jueves')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Viernes">
-                <td>Viernes</td>
+                <td><i class="fas fa-music"></i> Viernes</td>
                 <td id="events-Viernes"></td>
-                <td><button onclick="addEvent('Viernes')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Viernes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Sábado">
-                <td>Sábado</td>
+                <td><i class="fas fa-gamepad"></i> Sábado</td>
                 <td id="events-Sábado"></td>
-                <td><button onclick="addEvent('Sábado')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Sábado')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Domingo">
-                <td>Domingo</td>
+                <td><i class="fas fa-coffee"></i> Domingo</td>
                 <td id="events-Domingo"></td>
-                <td><button onclick="addEvent('Domingo')">Agregar Evento</button></td>
+                <td><button onclick="addEvent('Domingo')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
         </tbody>
     </table>
     
-    <button class="clear-btn" onclick="clearAll()">Limpiar Todo</button>
+    <button class="clear-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Limpiar Todo</button>
 
     <script>
         // Cargar eventos desde localStorage al iniciar
@@ -155,10 +197,10 @@
                 const div = document.createElement('div');
                 div.className = 'event';
                 div.innerHTML = `
-                    <strong>${event.time}:</strong> ${event.desc}
-                    ${event.people ? `<div class="people">Personas: ${event.people}</div>` : ''}
-                    <button onclick="editEvent('${day}', ${index})">Editar</button>
-                    <button onclick="removeEvent('${day}', ${index})">Eliminar</button>
+                    <strong><i class="fas fa-clock"></i> ${event.time}:</strong> ${event.desc}
+                    ${event.people ? `<div class="people"><i class="fas fa-users"></i> Personas: ${event.people}</div>` : ''}
+                    <button onclick="editEvent('${day}', ${index})"><i class="fas fa-edit"></i> Editar</button>
+                    <button onclick="removeEvent('${day}', ${index})"><i class="fas fa-times"></i> Eliminar</button>
                 `;
                 container.appendChild(div);
             });
