@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronograma Semanal para Discord</title>
+    <title>Cronograma Semanal para Anarchy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #5865f2, #7289da, #99aab5);
+            background: linear-gradient(135deg, #ff4757, #e84118, #c44569);
             color: #fff;
             margin: 0;
             padding: 20px;
@@ -26,7 +26,7 @@
             font-size: 2.5em;
         }
         h1 i {
-            color: #00ff88;
+            color: #ff6b6b;
         }
         p {
             text-align: center;
@@ -56,7 +56,7 @@
             margin-right: 10px;
         }
         button {
-            background: linear-gradient(45deg, #5865f2, #4752c4);
+            background: linear-gradient(45deg, #ff4757, #e84118);
             color: #fff;
             border: none;
             padding: 10px 15px;
@@ -81,7 +81,7 @@
             padding: 15px;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
-            border-left: 5px solid #00ff88;
+            border-left: 5px solid #ff6b6b;
             animation: slideIn 0.5s ease-out;
         }
         @keyframes slideIn {
@@ -89,7 +89,7 @@
             to { transform: translateX(0); opacity: 1; }
         }
         .event strong {
-            color: #00ff88;
+            color: #ff6b6b;
         }
         .people {
             font-size: 0.9em;
@@ -102,12 +102,12 @@
         .clear-btn {
             display: block;
             margin: 30px auto;
-            background: linear-gradient(45deg, #ff4757, #e84118);
+            background: linear-gradient(45deg, #c44569, #a55eea);
             font-size: 1.1em;
             padding: 12px 20px;
         }
         .clear-btn:hover {
-            background: linear-gradient(45deg, #e84118, #c44569);
+            background: linear-gradient(45deg, #a55eea, #8854d0);
         }
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
@@ -117,8 +117,8 @@
     </style>
 </head>
 <body>
-    <h1><i class="fab fa-discord"></i> Cronograma Semanal para Servidor de Discord</h1>
-    <p>Agrega eventos por día con hora, descripción y personas asignadas. ¡Decorado para inspirarte! <i class="fas fa-calendar-alt"></i></p>
+    <h1><i class="fas fa-skull"></i> Cronograma Semanal para Anarchy</h1>
+    <p>¡Libera el caos! Agrega eventos por día con hora, descripción y personas asignadas. <i class="fas fa-fire"></i></p>
     
     <table id="schedule">
         <thead>
@@ -130,22 +130,22 @@
         </thead>
         <tbody>
             <tr data-day="Lunes">
-                <td><i class="fas fa-sun"></i> Lunes</td>
+                <td><i class="fas fa-fire"></i> Lunes</td>
                 <td id="events-Lunes"></td>
                 <td><button onclick="addEvent('Lunes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Martes">
-                <td><i class="fas fa-moon"></i> Martes</td>
+                <td><i class="fas fa-bolt"></i> Martes</td>
                 <td id="events-Martes"></td>
                 <td><button onclick="addEvent('Martes')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Miércoles">
-                <td><i class="fas fa-star"></i> Miércoles</td>
+                <td><i class="fas fa-exclamation-triangle"></i> Miércoles</td>
                 <td id="events-Miércoles"></td>
                 <td><button onclick="addEvent('Miércoles')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
             <tr data-day="Jueves">
-                <td><i class="fas fa-cloud"></i> Jueves</td>
+                <td><i class="fas fa-skull-crossbones"></i> Jueves</td>
                 <td id="events-Jueves"></td>
                 <td><button onclick="addEvent('Jueves')"><i class="fas fa-plus"></i> Agregar Evento</button></td>
             </tr>
@@ -235,3 +235,4 @@
     </script>
 </body>
 </html>
+
