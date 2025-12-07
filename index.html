@@ -3,86 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANARCHY MC - Servidor de Minecraft</title>
+    <title>Cronograma Semanal para Discord</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; text-align: center; padding: 20px; }
-        h1 { color: #ff4500; }
-        .container { max-width: 800px; margin: auto; }
-        a { color: #00ff00; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .tienda { background-color: #444; padding: 20px; margin-top: 20px; border-radius: 10px; }
-        .producto { margin: 10px; padding: 10px; border: 1px solid #ff4500; display: inline-block; width: 250px; vertical-align: top; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #5865f2, #7289da);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        th {
+            background: rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+        button {
+            background: #5865f2;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #4752c4;
+        }
+        .event {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        .event strong {
+            color: #00ff88;
+        }
+        .people {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .clear-btn {
+            display: block;
+            margin: 20px auto;
+            background: #ff4757;
+        }
+        .clear-btn:hover {
+            background: #e84118;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenido a ANARCHY MC</h1>
-        <p>¡Únete al caos total en nuestro servidor de Minecraft Anarquía! Sin reglas, pura libertad.</p>
-        
-        <h2>Detalles del Servidor</h2>
-        <p><strong>IP:</strong> tu-ip-aqui:25565</p>
-        <p><strong>Versión:</strong> 1.20+ (Java Edition)</p>
-        <p><strong>Mods/Plugins:</strong> Lista aquí.</p>
-        
-        <h2>Únete a Nuestro Discord</h2>
-        <p>Chatea con la comunidad: <a href="https://discord.gg/tu-invite-link" target="_blank">discord.gg/anarchy-mc</a></p>
-        <iframe src="https://discord.com/widget?id=TU-SERVER-ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        
-        <!-- Sección de Tienda Actualizada -->
-        <div class="tienda">
-            <h2>Tienda de ANARCHY MC</h2>
-            <p>Apoya el servidor comprando rangos y perks. ¡Todo se procesa manualmente después del pago!</p>
-            
-            <!-- Rangos -->
-            <h3>Rangos</h3>
-            <div class="producto">
-                <h3>Rango Caos</h3>
-                <p>El rango supremo: comandos ilimitados, prioridad máxima y acceso a áreas exclusivas.</p>
-                <p><strong>Precio: $10 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=10" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <div class="producto">
-                <h3>Rango VIP</h3>
-                <p>Acceso a comandos especiales, teletransportes y protección básica contra grief.</p>
-                <p><strong>Precio: $8 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=8" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <div class="producto">
-                <h3>Rango Anarchy</h3>
-                <p>Rango básico para anarquistas: perks de supervivencia y unirse a eventos caóticos.</p>
-                <p><strong>Precio: $5 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=5" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <!-- Items Adicionales -->
-            <h3>Perks y Servicios</h3>
-            <div class="producto">
-                <h3>Fly Temporal</h3>
-                <p>Habilidad de volar por 1 hora en el servidor (temporal, no permanente).</p>
-                <p><strong>Precio: $3 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=3" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <div class="producto">
-                <h3>Infernal Create</h3>
-                <p>Acceso a un kit de creación infernal (items raros y herramientas para builds épicas).</p>
-                <p><strong>Precio: $1 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=1" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <div class="producto">
-                <h3>Desbaneo</h3>
-                <p>Servicio para quitar un baneo temporal o permanente (sujeto a revisión).</p>
-                <p><strong>Precio: $5 USD</strong></p>
-                <a href="https://www.paypal.com/paypalme/tu-usuario-paypal?amount=5" target="_blank">Comprar con PayPal</a>
-            </div>
-            
-            <p>Después del pago, contacta en Discord con tu comprobante para recibir tu recompensa.</p>
-        </div>
-        
-        <p>Reglas básicas: Nada de hacks, pero todo lo demás vale.</p>
-    </div>
+    <h1>Cronograma Semanal para Servidor de Discord</h1>
+    <p>Agrega eventos por día con hora, descripción y personas asignadas. Los datos se guardan automáticamente.</p>
+    
+    <table id="schedule">
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Eventos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-day="Lunes">
+                <td>Lunes</td>
+                <td id="events-Lunes"></td>
+                <td><button onclick="addEvent('Lunes')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Martes">
+                <td>Martes</td>
+                <td id="events-Martes"></td>
+                <td><button onclick="addEvent('Martes')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Miércoles">
+                <td>Miércoles</td>
+                <td id="events-Miércoles"></td>
+                <td><button onclick="addEvent('Miércoles')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Jueves">
+                <td>Jueves</td>
+                <td id="events-Jueves"></td>
+                <td><button onclick="addEvent('Jueves')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Viernes">
+                <td>Viernes</td>
+                <td id="events-Viernes"></td>
+                <td><button onclick="addEvent('Viernes')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Sábado">
+                <td>Sábado</td>
+                <td id="events-Sábado"></td>
+                <td><button onclick="addEvent('Sábado')">Agregar Evento</button></td>
+            </tr>
+            <tr data-day="Domingo">
+                <td>Domingo</td>
+                <td id="events-Domingo"></td>
+                <td><button onclick="addEvent('Domingo')">Agregar Evento</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button class="clear-btn" onclick="clearAll()">Limpiar Todo</button>
+
+    <script>
+        // Cargar eventos desde localStorage al iniciar
+        window.onload = function() {
+            for (let day of ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']) {
+                loadEvents(day);
+            }
+        };
+
+        function addEvent(day) {
+            const time = prompt('Hora del evento (ej: 14:00):');
+            const desc = prompt('Descripción del evento:');
+            const people = prompt('Personas asignadas (separadas por comas, ej: @usuario1, @usuario2):');
+            if (time && desc) {
+                const events = JSON.parse(localStorage.getItem(day) || '[]');
+                events.push({ time, desc, people: people || '' });
+                localStorage.setItem(day, JSON.stringify(events));
+                loadEvents(day);
+            }
+        }
+
+        function loadEvents(day) {
+            const events = JSON.parse(localStorage.getItem(day) || '[]');
+            const container = document.getElementById(`events-${day}`);
+            container.innerHTML = '';
+            events.forEach((event, index) => {
+                const div = document.createElement('div');
+                div.className = 'event';
+                div.innerHTML = `
+                    <strong>${event.time}:</strong> ${event.desc}
+                    ${event.people ? `<div class="people">Personas: ${event.people}</div>` : ''}
+                    <button onclick="editEvent('${day}', ${index})">Editar</button>
+                    <button onclick="removeEvent('${day}', ${index})">Eliminar</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function editEvent(day, index) {
+            const events = JSON.parse(localStorage.getItem(day) || '[]');
+            const event = events[index];
+            const newTime = prompt('Nueva hora:', event.time);
+            const newDesc = prompt('Nueva descripción:', event.desc);
+            const newPeople = prompt('Nuevas personas (separadas por comas):', event.people);
+            if (newTime && newDesc) {
+                events[index] = { time: newTime, desc: newDesc, people: newPeople || '' };
+                localStorage.setItem(day, JSON.stringify(events));
+                loadEvents(day);
+            }
+        }
+
+        function removeEvent(day, index) {
+            const events = JSON.parse(localStorage.getItem(day) || '[]');
+            events.splice(index, 1);
+            localStorage.setItem(day, JSON.stringify(events));
+            loadEvents(day);
+        }
+
+        function clearAll() {
+            if (confirm('¿Eliminar todos los eventos?')) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+    </script>
 </body>
 </html>
